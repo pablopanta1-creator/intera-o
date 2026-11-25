@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Interativo de Alunos</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="marca">SENAC <span>•</span> PROGRAMAÇÃO WEB</div>
+    <p class="etiqueta">AULA 12 · JAVASCRIPT</p>
+    <h1>Cadastro <span>interativo</span></h1>
+    <p class="subtitulo">Cadastre, consulte e acompanhe os alunos da turma.</p>
+  </header>
+
+  <main class="container">
+    <section class="painel">
+      <div class="titulo-secao">
+        <div>
+          <p class="sobretitulo">NOVO REGISTRO</p>
+          <h2>Adicionar aluno</h2>
+        </div>
+        <span class="icone">＋</span>
+      </div>
+
+      <form id="form-aluno" novalidate>
+        <div class="campos">
+          <label class="campo">
+            <span>Nome do aluno</span>
+            <input type="text" name="nome" id="nome" placeholder="Ex.: Ana Souza" autocomplete="off">
+            <small class="ajuda">Informe pelo menos 3 letras.</small>
+          </label>
+          <label class="campo">
+            <span>Nota (0 a 10)</span>
+            <input type="number" name="nota" id="nota" placeholder="Ex.: 8,5" min="0" max="10" step="0.1">
+            <small class="ajuda">Use um valor entre 0 e 10.</small>
+          </label>
+        </div>
+        <div class="acoes">
+          <button type="submit" class="botao-principal">Cadastrar aluno <span>→</span></button>
+          <p id="mensagem" class="mensagem" role="status" aria-live="polite">Preencha os campos para adicionar um aluno.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="painel painel-lista">
+      <div class="titulo-secao">
+        <div>
+          <p class="sobretitulo">ACOMPANHAMENTO</p>
+          <h2>Alunos cadastrados</h2>
+        </div>
+        <span class="contador" id="contador">0 alunos</span>
+      </div>
+
+      <label class="campo busca">
+        <span>Buscar aluno</span>
+        <input type="search" id="busca" placeholder="Digite um nome para filtrar..." autocomplete="off">
+        <small class="ajuda">A busca atualiza enquanto você digita. Pressione Esc para limpar.</small>
+      </label>
+
+      <div class="tabela-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Nota</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+        <p id="vazio" class="vazio" hidden>Nenhum aluno encontrado.</p>
+      </div>
+      <p class="dica">Dica: dê dois cliques em uma linha para remover o aluno.</p>
+    </section>
+  </main>
+
+  <footer>Projeto de prática · Eventos, formulários e manipulação do DOM</footer>
+</body>
+</html>
